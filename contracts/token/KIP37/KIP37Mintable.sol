@@ -21,6 +21,12 @@ contract KIP37Mintable is KIP37, MinterRole {
     // id => creators
     mapping(uint256 => address) public creators;
 
+    // id => name
+    mapping(uint256 => string) private _name;
+
+    // id => symbol
+    mapping(uint256 => string) public _symbol;
+
     mapping(uint256 => string) _uris;
 
     constructor() public {
@@ -61,9 +67,14 @@ contract KIP37Mintable is KIP37, MinterRole {
     function create(
         uint256 _id,
         uint256 _initialSupply,
-        string memory _uri
+        string memory _uri,
+        string memory name,
+        string memory symbol
     ) public onlyMinter returns (bool) {
         require(!_exists(_id), "KIP37: token already created");
+
+        _name[_id] = name;
+        _symbol[_id] = symbol;
 
         creators[_id] = msg.sender;
         _mint(msg.sender, _id, _initialSupply, "");
