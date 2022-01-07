@@ -1,0 +1,980 @@
+{
+	"compiler": {
+		"version": "0.5.6+commit.b259423e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "paused",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "uri",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "pause",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"name": "ids",
+						"type": "uint256[]"
+					},
+					{
+						"name": "amounts",
+						"type": "uint256[]"
+					},
+					{
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "safeBatchTransferFrom",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "unpause",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "isPauser",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"name": "_initialSupply",
+						"type": "uint256"
+					},
+					{
+						"name": "_uri",
+						"type": "string"
+					}
+				],
+				"name": "create",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "accounts",
+						"type": "address[]"
+					},
+					{
+						"name": "ids",
+						"type": "uint256[]"
+					}
+				],
+				"name": "balanceOfBatch",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "paused",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"name": "ids",
+						"type": "uint256[]"
+					},
+					{
+						"name": "values",
+						"type": "uint256[]"
+					}
+				],
+				"name": "burnBatch",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "renouncePauser",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "addPauser",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "pause",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "addMinter",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "renounceMinter",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "setApprovalForAll",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "isMinter",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "creators",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"name": "_toList",
+						"type": "address[]"
+					},
+					{
+						"name": "_values",
+						"type": "uint256[]"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"name": "_ids",
+						"type": "uint256[]"
+					},
+					{
+						"name": "_values",
+						"type": "uint256[]"
+					}
+				],
+				"name": "mintBatch",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"name": "operator",
+						"type": "address"
+					}
+				],
+				"name": "isApprovedForAll",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "safeTransferFrom",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "unpause",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"name": "uri",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "MinterAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "MinterRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Paused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Unpaused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Paused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "Unpaused",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "PauserAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "PauserRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "TransferSingle",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "ids",
+						"type": "uint256[]"
+					},
+					{
+						"indexed": false,
+						"name": "values",
+						"type": "uint256[]"
+					}
+				],
+				"name": "TransferBatch",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "ApprovalForAll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "value",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "URI",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {
+				"balanceOf(address,uint256)": {
+					"details": "See {IKIP37-balanceOf}.     * Requirements:     * - `account` cannot be the zero address."
+				},
+				"balanceOfBatch(address[],uint256[])": {
+					"details": "See {IKIP37-balanceOfBatch}.     * Requirements:     * - `accounts` and `ids` must have the same length."
+				},
+				"create(uint256,uint256,string)": {
+					"details": "Throws if `msg.sender` is not allowed to create.   Throws if the token id is already used.",
+					"params": {
+						"_id": "The token id to create.",
+						"_initialSupply": "The amount of tokens being minted.",
+						"_uri": "The token URI of the created token."
+					},
+					"return": "A boolean that indicates if the operation was successful."
+				},
+				"isApprovedForAll(address,address)": {
+					"details": "See {IKIP37-isApprovedForAll}."
+				},
+				"mint(uint256,address,uint256)": {
+					"details": "Throws if `msg.sender` is not allowed to mint.   MUST emit an event `TransferSingle`.",
+					"params": {
+						"_id": "The token id to mint.",
+						"_to": "The address that will receive the minted tokens.",
+						"_value": "The quantity of tokens being minted."
+					}
+				},
+				"mint(uint256,address[],uint256[])": {
+					"details": "Throws if `msg.sender` is not allowed to mint.   MUST emit one or more `TransferSingle` events.   MUST revert if the length of `_toList` is not the same as the length of `_values`.",
+					"params": {
+						"_id": "The token id to mint.",
+						"_toList": "The list of addresses that will receive the minted tokens.",
+						"_values": "The list of quantities of tokens being minted."
+					}
+				},
+				"mintBatch(address,uint256[],uint256[])": {
+					"details": "Throws if `msg.sender` is not allowed to mint.   MUST emit one or more `TransferSingle` events or a single `TransferBatch` event.   MUST revert if the length of `_ids` is not the same as the length of `_values`.",
+					"params": {
+						"_ids": "The list of the token ids to mint.",
+						"_to": "The address that will receive the minted tokens.",
+						"_values": "The list of quantities of tokens being minted."
+					}
+				},
+				"pause()": {
+					"details": "Called by a pauser to pause, triggers stopped state."
+				},
+				"pause(uint256)": {
+					"details": "Throws if `msg.sender` is not allowed to pause.   Throws if the specific token is paused."
+				},
+				"paused()": {
+					"details": "Returns true if the contract is paused, and false otherwise."
+				},
+				"paused(uint256)": {
+					"return": "True if the specific token is paused, false otherwise"
+				},
+				"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)": {
+					"details": "See {IKIP37-safeBatchTransferFrom}."
+				},
+				"safeTransferFrom(address,address,uint256,uint256,bytes)": {
+					"details": "See {IKIP37-safeTransferFrom}."
+				},
+				"setApprovalForAll(address,bool)": {
+					"details": "See {IKIP37-setApprovalForAll}."
+				},
+				"supportsInterface(bytes4)": {
+					"details": "See `IKIP13.supportsInterface`.     * Time complexity O(1), guaranteed to always use less than 30 000 gas."
+				},
+				"unpause()": {
+					"details": "Called by a pauser to unpause, returns to normal state."
+				},
+				"unpause(uint256)": {
+					"details": "Throws if `msg.sender` is not allowed to unpause.   Throws if the specific token is not paused."
+				},
+				"uri(uint256)": {
+					"details": "See {IKIP37MetadataURI-uri}.     * This implementation returns the same URI for *all* token types. It relies on the token type ID substituion mechanism http://kips.klaytn.com/KIPs/kip-37#metadata     * Clients calling this function must replace the `\\{id\\}` substring with the actual token type ID."
+				}
+			}
+		},
+		"userdoc": {
+			"methods": {
+				"create(uint256,uint256,string)": {
+					"notice": "Creates a new token type and assigns _initialSupply to the minter."
+				},
+				"mint(uint256,address,uint256)": {
+					"notice": "Mints tokens of the specific token type `_id` and assigns the tokens according to the variables `_to` and `_value`."
+				},
+				"mint(uint256,address[],uint256[])": {
+					"notice": "Mints tokens of the specific token type `_id` in a batch and assigns the tokens according to the variables `_toList` and `_values`."
+				},
+				"mintBatch(address,uint256[],uint256[])": {
+					"notice": "Mints multiple KIP37 tokens of the specific token types `_ids` in a batch and assigns the tokens according to the variables `_to` and `_values`."
+				},
+				"pause(uint256)": {
+					"notice": "Pauses actions related to transfer and approval of the specific token."
+				},
+				"paused(uint256)": {
+					"notice": "Checks whether the specific token is paused."
+				},
+				"unpause(uint256)": {
+					"notice": "Resumes from the paused state of the specific token."
+				}
+			}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"token/KIP37/KIP37Token.sol": "KIP37Token"
+		},
+		"evmVersion": "constantinople",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"GSN/Context.sol": {
+			"keccak256": "0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061",
+			"urls": [
+				"bzzr://51482c01bddf23793bddee43b60ab9578a62948a4f2082def24ea792a553b055"
+			]
+		},
+		"access/Roles.sol": {
+			"keccak256": "0xb002c378d7b82a101bd659c341518953ca0919d342c0a400196982c0e7e7bcdb",
+			"urls": [
+				"bzzr://bd34c1ce05b5b2b3a62fc02e160f6805b1cadd476854664f433c685b2fda8dad"
+			]
+		},
+		"access/roles/MinterRole.sol": {
+			"keccak256": "0x63da54a7a5d4e4d82ac8d1f4f7f995fd8ef2b5fe1f2960b83e534fa37fb60910",
+			"urls": [
+				"bzzr://cea53b805426e40efadb24f2613aca39182462e9ecd23fde7aacf0c4b5885aaf"
+			]
+		},
+		"access/roles/PauserRole.sol": {
+			"keccak256": "0xf6826c684d51ca28db5293ce11a54c5cca1c757b6cd32b87613833c65086f995",
+			"urls": [
+				"bzzr://01b2756ab5b41b1d7ccadfeac53fbdce9c889263f1e011329c300c5fa3fda65f"
+			]
+		},
+		"introspection/IKIP13.sol": {
+			"keccak256": "0xf7415711dbec40bc633af7d8cb5c3c0bc3d1ed97fd8c13f795a03eb3073ea219",
+			"urls": [
+				"bzzr://2c161a0e94debcd164c7a87e2c12c087ffefe24bc7a4a9f304f5d8ba39ed15a1"
+			]
+		},
+		"introspection/KIP13.sol": {
+			"keccak256": "0x84681701e79f53ba1e9660b6a130bba31880d66cee996ab7d5567d239155c6da",
+			"urls": [
+				"bzzr://743958df51380e11b5e58092297c1e122582ade8d358010c733f27e175e7ca10"
+			]
+		},
+		"lifecycle/Pausable.sol": {
+			"keccak256": "0x609f8cb524cd6b502624c79c099ec2fc6f23eef57b5c38e28efd82490875f37e",
+			"urls": [
+				"bzzr://46ee461a64298ef418bd100df1301355f4dc9ffeb06fe7a39aaf98d45c0bf988"
+			]
+		},
+		"math/SafeMath.sol": {
+			"keccak256": "0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076",
+			"urls": [
+				"bzzr://292843005e754e752644f767477ec5ad7a1ffc91ddb18c38b8079c62f3993cad"
+			]
+		},
+		"token/KIP37/IERC1155Receiver.sol": {
+			"keccak256": "0x1df8445fadc783d7ea4314d63c172c7f37b9d21341c6d9579915c4744abfcfc7",
+			"urls": [
+				"bzzr://3b950264911930d2690339a4ec482002fb3ab06c90110d149a15871d0eb42144"
+			]
+		},
+		"token/KIP37/IKIP37.sol": {
+			"keccak256": "0x8d17538ef04ab43cd1859a0068a1d2aec70840081ac205cc0841aac7951ba200",
+			"urls": [
+				"bzzr://b630b7b5984ebf3ab11bdd54500ba6248159dd90c5144aabe9abcc4801e4b2e0"
+			]
+		},
+		"token/KIP37/IKIP37MetadataURI.sol": {
+			"keccak256": "0xa88ff83764382d3e44bdf75a2f8c5f17db9204cc32a3871c86fe9d301e3f5a8a",
+			"urls": [
+				"bzzr://ba4343d6c303b6536166244d126a769b796f72e51a7df5324ec649504f368150"
+			]
+		},
+		"token/KIP37/IKIP37Receiver.sol": {
+			"keccak256": "0x83496b998885cfa74818ccd60afaca8c9f54c70ef6f4487b3a0b904492c2bc30",
+			"urls": [
+				"bzzr://518de569744166ca37485aab16208f30a2abb796bc455663eb35783969f5b9c9"
+			]
+		},
+		"token/KIP37/KIP37.sol": {
+			"keccak256": "0xb6f91fd7092e065de3946fe7225ae623649b892c6d441a536236fcde0f2fa0d7",
+			"urls": [
+				"bzzr://3d497775b4742946bec44d513ffb36450ae07cea3b605eeb344668cd6ce17201"
+			]
+		},
+		"token/KIP37/KIP37Burnable.sol": {
+			"keccak256": "0xbb70635bf2c7fc1828d72e18408f7c7d8ece08eefea285747f24f2c6090619bc",
+			"urls": [
+				"bzzr://8da5cbb1812419e8c01c68a47160e71617f41a0a04e33a8fc7c71109c3b39ed1"
+			]
+		},
+		"token/KIP37/KIP37Mintable.sol": {
+			"keccak256": "0xb89c7c6235f13d6f6ab3d4c335bda3beb2c90b698c1807829c50e539005a5e64",
+			"urls": [
+				"bzzr://ab926bdd8d94d1370a63db9330e8ce5163b0b7562c27b6fefbee8daa67155604"
+			]
+		},
+		"token/KIP37/KIP37Pausable.sol": {
+			"keccak256": "0x9e7eacaf3fe093718768872299f1373a16d7119229b9b01245fc6a4a6990b7ac",
+			"urls": [
+				"bzzr://081ae3135fc144f79b027ecf84c9c2c169489717fb4db3b7ea9acd1463c9749e"
+			]
+		},
+		"token/KIP37/KIP37Token.sol": {
+			"keccak256": "0x75cb76a7083ab730b2b670ffa536b22802d5a01a4ce6ce037051531293bc984e",
+			"urls": [
+				"bzzr://b0ea4b12289aa5d247fb447aacb1160d4ccfe8d40cfd1f52dc6760f7dddbfc4e"
+			]
+		},
+		"utils/Address.sol": {
+			"keccak256": "0xf3358e5819ca73357abd6c90bdfffd0474af54364897f6b3e3234c4b71fbe9a1",
+			"urls": [
+				"bzzr://f7f6da60a184233fd666ac44e6fb2bd51ca6ebdc4867a310d368049aa4e62786"
+			]
+		}
+	},
+	"version": 1
+}

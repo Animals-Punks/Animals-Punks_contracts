@@ -1,0 +1,11 @@
+{
+  "name": "Animals-Punks_contracts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Animals-Punks/Animals-Punks_contracts.git",
+  "author": "mo-zza <bigsmalljoe@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "connect": "remixd -s $PWD/contracts -u https://ide.klaytn.com"
+  }
+}
