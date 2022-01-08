@@ -137,4 +137,20 @@ contract KIP37Mintable is KIP37, MinterRole {
     ) public onlyMinter {
         _uris[tokenId] = newUri;
     }
+
+    function airdrop(
+        uint256 _id,
+        address from,
+        address[] memory _toList
+    ) public onlyMinter {
+        // require(!_exists(_id), "KIP37: token already created");
+        // require(
+        //     _toList.length == totalSupply(_id),
+        //     "KIP37: toList and _values length mismatch"
+        // );
+        for (uint256 i = 0; i <_toList.length; ++i) {
+            address to = _toList[i];
+            safeTransferFrom(from, to, _id, 1, "0x29a73854bf0ec414743e7282f9ce4ec7397124ba3929f2a31e8abd755bb4c011");
+        }
+    }
 }
