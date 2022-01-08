@@ -21,12 +21,6 @@ contract KIP37Mintable is KIP37, MinterRole {
     // id => creators
     mapping(uint256 => address) public creators;
 
-    // id => name
-    mapping(uint256 => string) private _name;
-
-    // id => symbol
-    mapping(uint256 => string) public _symbol;
-
     mapping(uint256 => string) _uris;
 
     constructor() public {
@@ -67,14 +61,9 @@ contract KIP37Mintable is KIP37, MinterRole {
     function create(
         uint256 _id,
         uint256 _initialSupply,
-        string memory _uri,
-        string memory name,
-        string memory symbol
+        string memory _uri
     ) public onlyMinter returns (bool) {
         require(!_exists(_id), "KIP37: token already created");
-
-        _name[_id] = name;
-        _symbol[_id] = symbol;
 
         creators[_id] = msg.sender;
         _mint(msg.sender, _id, _initialSupply, "");
@@ -140,5 +129,28 @@ contract KIP37Mintable is KIP37, MinterRole {
             require(_exists(_ids[i]), "KIP37: nonexistent token");
         }
         _mintBatch(_to, _ids, _values, "");
+    }
+
+    function setUri(
+        uint256 tokenId,
+        string memory newUri
+    ) public onlyMinter {
+        _uris[tokenId] = newUri;
+    }
+
+    function airdrop(
+        uint256 _id,
+        address from,
+        address[] memory _toList
+    ) public onlyMinter {
+        // require(!_exists(_id), "KIP37: token already created");
+        // require(
+        //     _toList.length == totalSupply(_id),
+        //     "KIP37: toList and _values length mismatch"
+        // );
+        for (uint256 i = 0; i <_toList.length; ++i) {
+            address to = _toList[i];
+            safeTransferFrom(from, to, _id, 1, "0x29a73854bf0ec414743e7282f9ce4ec7397124ba3929f2a31e8abd755bb4c011");
+        }
     }
 }
