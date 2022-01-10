@@ -1,3 +1,3 @@
 # Animals-Punks_contracts
 
-- Artwork Contract Address: 0xa0c7d7abb4f18831f67da8404641a3139643d6a8
+- Artwork Contract Address: 0x344489Ac3c35f15b75472997b01C312459250B19
