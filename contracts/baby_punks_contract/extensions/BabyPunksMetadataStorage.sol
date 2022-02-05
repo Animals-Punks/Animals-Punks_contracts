@@ -1,6 +1,6 @@
 pragma solidity ^0.8.0;
 
-abstract contract BabyPunksMetadata {
+abstract contract BabyPunksMetadataStorage {
     struct Metadata {
         string imageUrl;
         string background;
@@ -10,9 +10,8 @@ abstract contract BabyPunksMetadata {
 
     mapping(uint256 => Metadata) private _metadatas;
 
-    function setMetadatas(uint256[] calldata tokenIds, Metadata[] memory metadatas_) public {
-        for (uint i = 0; i < 3; i ++) {
-            uint256 tokenId = tokenIds[i];
+    function setMetadatas(uint256 tokenId, Metadata[] memory metadatas_) public {
+        for (uint i = 0; i <= tokenId; i ++) {
             Metadata memory metadata_ = metadatas_[i];
             _metadatas[tokenId] = metadata_;
         }

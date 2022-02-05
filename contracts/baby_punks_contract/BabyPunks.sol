@@ -2,15 +2,16 @@ pragma solidity ^0.8.0;
 
 import "./IERC721Receiver.sol";
 import "./extensions/BabyPunksEnumerable.sol";
+import "./extensions/AnimalsPunksV2Storage.sol";
+import "./extensions/BabyPunksMetadataStorage.sol";
 import "../shared/openzeppelin/utils/Context.sol";
 import "../shared/openzeppelin/utils/Address.sol";
 import "../shared/openzeppelin/utils/Strings.sol";
 import "../shared/openzeppelin/utils/introspection/ERC165.sol";
 import "../shared/openzeppelin/token/ERC721/IERC721.sol";
 import "../shared/openzeppelin/token/ERC721/extensions/IERC721Metadata.sol";
-import "./extensions/AnimalsPunksV2Storage.sol";
 
-contract BabyPunks is Context, ERC165, IERC721, IERC721Metadata, BabyPunksEnumerable, AnimalsPunksV2Storage {
+contract BabyPunks is Context, ERC165, IERC721, IERC721Metadata, BabyPunksEnumerable, AnimalsPunksV2Storage, BabyPunksMetadataStorage {
     using Address for address;
     using Strings for uint256;
 
@@ -18,6 +19,7 @@ contract BabyPunks is Context, ERC165, IERC721, IERC721Metadata, BabyPunksEnumer
     string private _symbol = "BAP";
     string private _baseUri;
     address public owner;
+    uint256 private _limitSupply = 500;
 
     mapping(uint256 => address) private _owners;
     mapping(address => uint256) private _balances;
@@ -25,9 +27,11 @@ contract BabyPunks is Context, ERC165, IERC721, IERC721Metadata, BabyPunksEnumer
     mapping(address => mapping(address => bool)) private _operatorApprovals;
     mapping(address => mapping(uint256 => uint256)) private _ownedTokens;
 
-    constructor(string memory baseUri_) {
+    constructor(string memory baseUri_, Metadata[] memory metadatas_, uint256[] memory v2TokenIds, string[] memory kinds) {
         _baseUri = baseUri_;
         owner = msg.sender;
+        BabyPunksMetadataStorage.setMetadatas(_limitSupply, metadatas_);
+        AnimalsPunksV2Storage.initializedStorage(v2TokenIds, kinds);
     }
 
     function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {

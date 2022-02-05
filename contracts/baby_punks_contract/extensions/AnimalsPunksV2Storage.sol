@@ -5,8 +5,8 @@ abstract contract AnimalsPunksV2Storage {
     mapping(uint256 => bool) public _usedAP;
     mapping(uint256 => uint256[]) public _usedTokenId;
 
-    function initializedStorage(uint256[] calldata v2TokenIds, string[] memory kinds) public {
-        for (uint256 i = 0; i < 3; i ++) {
+    function initializedStorage(uint256[] memory v2TokenIds, string[] memory kinds) public {
+        for (uint256 i = 0; i <= 10000; i ++) {
             uint256 tokenId = v2TokenIds[i];
             string memory kind = kinds[i];
             _species[tokenId] = kind;
@@ -34,7 +34,6 @@ abstract contract AnimalsPunksV2Storage {
     }
 
     function removeUsedAp(uint256 tokenId) public {
-        
         uint256[] memory v2TokenIds = _usedTokenId[tokenId];
         for (uint i; i < 2; i ++) {
             uint256 v2Id = v2TokenIds[i];
