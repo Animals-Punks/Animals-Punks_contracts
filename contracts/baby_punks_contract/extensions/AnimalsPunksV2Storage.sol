@@ -1,12 +1,20 @@
 pragma solidity ^0.8.0;
 
 abstract contract AnimalsPunksV2Storage {
+    struct V2Metadata {
+        string imageUrl;
+        string species;
+        uint256 tokenId;
+    }
+
     mapping(uint256 => string) public _species;
     mapping(uint256 => bool) public _usedAP;
     mapping(uint256 => uint256[]) public _usedTokenId;
+    mapping(uint256 => V2Metadata) public _v2Metadata;
 
-    function initializedStorage(uint256[] memory v2TokenIds, string[] memory kinds) public {
+    function initializedStorage(uint256[] memory v2TokenIds, string[] memory kinds, V2Metadata[] memory v2Metadata) public {
         for (uint256 i = 0; i <= 10000; i ++) {
+            _v2Metadata[i] = v2Metadata[i];
             uint256 tokenId = v2TokenIds[i];
             string memory kind = kinds[i];
             _species[tokenId] = kind;
@@ -17,6 +25,12 @@ abstract contract AnimalsPunksV2Storage {
     function getSpecies(uint256 v2TokenId) public view virtual returns (string memory) {
         require(v2TokenId <= 9999, "AnimalsPunksV2Storage: This token id not be minted.");
         return _species[v2TokenId];
+    }
+
+    function unUsedV2(uint256 v2TokenId) public view virtual returns (V2Metadata memory) {
+        require(v2TokenId <= 9999, "AnimalsPunksV2Storage: This token id not be minted.");
+        require(_usedAP[v2TokenId] == false, "AnimalsPunksV2Storage: This token is used.");
+        return _v2Metadata[v2TokenId];
     }
 
     function usedAp(uint256[] calldata v2TokenId, uint256 tokenId) public {

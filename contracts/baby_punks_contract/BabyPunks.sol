@@ -19,7 +19,7 @@ contract BabyPunks is Context, ERC165, IERC721, IERC721Metadata, BabyPunksEnumer
     string private _symbol = "BAP";
     string private _baseUri;
     address public owner;
-    uint256 private _limitSupply = 500;
+    uint256 private _limitSupply = 1000;
 
     mapping(uint256 => address) private _owners;
     mapping(address => uint256) private _balances;
