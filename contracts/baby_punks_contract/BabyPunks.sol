@@ -19,7 +19,9 @@ contract BabyPunks is Context, ERC165, IERC721, IERC721Metadata, BabyPunksEnumer
     string private _symbol = "BAP";
     string private _baseUri;
     address public owner;
-    uint256 private _limitSupply = 500;
+    uint256 private _limitSupply = 1000;
+    string private _klubsEndpoint = "https://storage.googleapis.com/klubs/ipfsimage/QmZLMp34TCC4icxfjyKyiKkmVp7YrQFgdRKHfzW7ZeUQv1/";
+    string private _klubsEndpointEnd = ".png.png";
 
     mapping(uint256 => address) private _owners;
     mapping(address => uint256) private _balances;
@@ -27,11 +29,9 @@ contract BabyPunks is Context, ERC165, IERC721, IERC721Metadata, BabyPunksEnumer
     mapping(address => mapping(address => bool)) private _operatorApprovals;
     mapping(address => mapping(uint256 => uint256)) private _ownedTokens;
 
-    constructor(string memory baseUri_, Metadata[] memory metadatas_, uint256[] memory v2TokenIds, string[] memory kinds) {
+    constructor(string memory baseUri_) {
         _baseUri = baseUri_;
         owner = msg.sender;
-        BabyPunksMetadataStorage.setMetadatas(_limitSupply, metadatas_);
-        AnimalsPunksV2Storage.initializedStorage(v2TokenIds, kinds);
     }
 
     function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {
@@ -70,6 +70,12 @@ contract BabyPunks is Context, ERC165, IERC721, IERC721Metadata, BabyPunksEnumer
 
         string memory baseURI = _baseURI();
         return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, tokenId.toString())) : "";
+    }
+
+    function getUsedApUrl(uint256 tokenId) public view virtual returns (string memory) {
+        require(tokenId <= 9999, "AnimalsPunksV2Storage: This token id not be minted.");
+        require(_usedAP[tokenId] == true, "AnimalsPunksV2Storage: This token is unUsed.");
+        return bytes(_klubsEndpoint).length > 0 ? string(abi.encodePacked(_klubsEndpoint, tokenId.toString(), _klubsEndpointEnd)) : "";
     }
 
     function setBaseURI(string memory newBaseUri) external {
@@ -156,17 +162,19 @@ contract BabyPunks is Context, ERC165, IERC721, IERC721Metadata, BabyPunksEnumer
     }
 
 
-    function mint(address to, uint256[] calldata reqUsedAp) external {
+    function mint(address to, uint256[] calldata reqUsedAp, string memory babyPunkSpecies) external {
         require(reqUsedAp.length == 2, "BabyPunks: V2 must be 2.");
         uint256 tokenId = BabyPunksEnumerable.totalSupply();
         AnimalsPunksV2Storage.usedAp(reqUsedAp, tokenId);
-        _safeMint(to, tokenId, "");
+        BabyPunksMetadataStorage.usedExtra(babyPunkSpecies, tokenId);
+        _safeMint(to, tokenId, babyPunkSpecies, "");
     }
 
-    function mintByTokenId(address to, uint256 tokenId, uint256[] calldata reqUsedAp) external {
+    function mintByTokenId(address to, uint256 tokenId, uint256[] calldata reqUsedAp, string memory babyPunkSpecies) external {
         require(reqUsedAp.length == 2, "BabyPunks: V2 must be 2.");
         AnimalsPunksV2Storage.usedAp(reqUsedAp, tokenId);
-        _safeMint(to, tokenId, "");   
+        BabyPunksMetadataStorage.usedExtra(babyPunkSpecies, tokenId);
+        _safeMint(to, tokenId, babyPunkSpecies, "");   
     }
 
     function burn(uint256 tokenId) external {
@@ -176,6 +184,7 @@ contract BabyPunks is Context, ERC165, IERC721, IERC721Metadata, BabyPunksEnumer
     function _safeMint(
         address to,
         uint256 tokenId,
+        string memory babyPunkSpecies,
         bytes memory _data
     ) internal virtual {
         _mint(to, tokenId);
