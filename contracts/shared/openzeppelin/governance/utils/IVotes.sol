@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.0 (interfaces/IVotes.sol)
-pragma solidity ^0.8.0;
+pragma solidity ^0.5.0;
 
 /**
  * @dev Common interface for {ERC20Votes}, {ERC721Votes}, and other {Votes}-enabled contracts.
