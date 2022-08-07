@@ -13,8 +13,8 @@ contract DPunks is Context, ERC165, IERC721, IERC721Metadata, Ownable {
     using Address for address;
     using Strings for uint256;
 
-    string private _name = "C Punks";
-    string private _symbol = "Cp";
+    string private _name = "D Punks";
+    string private _symbol = "Dp";
     string private _baseUri;
     uint256 private _limitAmount = 88;
 
