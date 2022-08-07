@@ -1,4 +1,4 @@
-pragma solidity ^0.8.0;
+pragma solidity ^0.5.0;
 
 abstract contract AnimalsPunksV2Storage {
     struct V2Metadata {

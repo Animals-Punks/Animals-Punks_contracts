@@ -6,6 +6,9 @@
   "author": "mo-zza <bigsmalljoe@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "connect": "remixd -s $PWD/contracts -u https://ide.klaytn.com"
+    "connect": "remixd -s $PWD/contracts -u https://ide.klaytn.foundation"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.7.2"
   }
 }
